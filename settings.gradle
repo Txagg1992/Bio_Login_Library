@@ -1,0 +1,2 @@
+include ':app', ':biometriclibrary'
+rootProject.name='Bio_Library'
