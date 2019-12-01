@@ -1,6 +1,8 @@
 package com.curiousca.bio_library
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.curiousca.biometriclibrary.BiometricCallback
 import com.curiousca.biometriclibrary.BiometricManager
@@ -24,7 +26,7 @@ class MainActivity : AppCompatActivity(), BiometricCallback {
             mBiometricManager = BiometricManager.BiometricBuilder(this@MainActivity)
                 .setTitle("Your Title Here")
                 .setSubtitle("Your Subtitle Here")
-                .setdescription("Your Decsription Here")
+                .setdescription("Your Description Here")
                 .setNegativeButtonText("Cancel/ Use Password")
                 .build()
 
@@ -33,42 +35,46 @@ class MainActivity : AppCompatActivity(), BiometricCallback {
     }
 
     override fun onSDKVersionNotSupported() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        Toast.makeText(applicationContext, "SDK version not supported.", Toast.LENGTH_LONG).show()
     }
 
     override fun onBiometricAuthenticationNotSupported() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        Toast.makeText(applicationContext, "Device does not support biometric authentication.", Toast.LENGTH_LONG).show()
     }
 
     override fun onBiometricAuthenticationNotAvailable() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        Toast.makeText(applicationContext, "Fingerprint is not registered on this device.", Toast.LENGTH_LONG).show()
     }
 
     override fun onBiometricAuthenticationPermissionNotGranted() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        Toast.makeText(applicationContext, "Permission is not granted by user", Toast.LENGTH_LONG).show()
     }
 
     override fun onBiometricAuthenticationInternalError(error: String) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        Toast.makeText(applicationContext, error, Toast.LENGTH_LONG).show()
     }
 
     override fun onAuthenticationFailed() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        Toast.makeText(applicationContext, "Authentication failed.", Toast.LENGTH_LONG).show()
     }
 
     override fun onAuthenticationCancelled() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        Toast.makeText(applicationContext, "Please enter your password.", Toast.LENGTH_LONG).show()
+        mBiometricManager.cancelAuthentication()
     }
 
     override fun onAuthenticationSuccessful() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        Toast.makeText(applicationContext, "Login success.", Toast.LENGTH_LONG).show()
+
+        val intent = Intent(this, MainActivity::class.java)
+        this.startActivity(intent)
     }
 
     override fun onAuthenticationHelp(helpCode: Int, helpString: String) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        Toast.makeText(applicationContext, helpString, Toast.LENGTH_LONG).show()
     }
 
     override fun onAuthenticationError(errorCode: Int, errString: String) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        //Toast.makeText(applicationContext, errString, Toast.LENGTH_LONG).show()
     }
 }

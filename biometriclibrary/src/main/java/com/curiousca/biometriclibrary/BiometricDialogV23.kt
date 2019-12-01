@@ -7,7 +7,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialog
 import kotlinx.android.synthetic.main.view_bottom_sheet.*
 
 class BiometricDialogV23(@NonNull context: Context, biometricCallback: BiometricCallback)
-    : BottomSheetDialog(context, R.style.Theme_Design_BottomSheetDialog), View.OnClickListener{
+    : BottomSheetDialog(context, R.style.BottomSheetDialogTheme), View.OnClickListener{
 
     private var biometricCallback:BiometricCallback? = null
     init {
@@ -19,7 +19,7 @@ class BiometricDialogV23(@NonNull context: Context, biometricCallback: Biometric
         val bottomSheetView: View = layoutInflater.inflate(R.layout.view_bottom_sheet, null)
         setContentView(bottomSheetView)
 
-        button_cancel.setOnClickListener { this }
+        button_cancel.setOnClickListener(this)
 
         updateLogo()
         setFingerImg()
@@ -73,5 +73,4 @@ class BiometricDialogV23(@NonNull context: Context, biometricCallback: Biometric
         dismiss()
         biometricCallback?.onAuthenticationCancelled()
     }
-
 }
