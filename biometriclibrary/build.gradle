@@ -25,6 +25,12 @@ android {
 
 }
 
+ext{
+    LIB_VERSION = "1.1.0"
+    LIB_MAVEN_ARTIFACT_ID = "biometriclibrary"
+    LIB_MAVEN_GROUP_ID = "com.curiousca.biometriclibrary"
+}
+
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
