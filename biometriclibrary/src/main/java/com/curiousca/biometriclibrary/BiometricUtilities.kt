@@ -30,7 +30,7 @@ object BiometricUtilities {
     /*
     Conditional check 3: Check that user has fingerprint registered
      */
-    fun isFingerpringAvailable(context: Context): Boolean{
+    fun isFingerprintAvailable(context: Context): Boolean{
         val fingerprintManager = FingerprintManagerCompat.from(context)
         return fingerprintManager.hasEnrolledFingerprints()
     }
