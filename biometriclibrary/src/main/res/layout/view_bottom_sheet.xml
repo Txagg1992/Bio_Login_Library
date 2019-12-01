@@ -79,7 +79,7 @@
         android:layout_marginTop="12dp"
         android:text="Cancel"
         android:textColor="@color/dialog_cancel_button"
-        android:background="null"
+        android:background="@android:color/transparent"
         android:gravity="left|bottom"/>
 
 </RelativeLayout>
