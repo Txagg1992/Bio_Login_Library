@@ -15,6 +15,7 @@ import javax.crypto.Cipher
 import javax.crypto.KeyGenerator
 import javax.crypto.NoSuchPaddingException
 import javax.crypto.SecretKey
+import kotlin.concurrent.thread
 
 @RequiresApi(Build.VERSION_CODES.M)
 open class BiometricManagerV23(var context: Context){
@@ -68,13 +69,22 @@ open class BiometricManagerV23(var context: Context){
 
                     override fun onAuthenticationFailed() {
                         super.onAuthenticationFailed()
+                        biometricDialogV23?.updateFingerImg()
                         updateStatus("Fingerprint not recognized")
                         biometricCallback.onAuthenticationFailed()
+                        resetFinger()
                     }
                 }, null
             )
             displayBiometricDialog(biometricCallback)
         }
+    }
+
+    private fun resetFinger(){
+        Thread.sleep(10)
+        biometricDialogV23?.renewFingerImg()
+        updateStatus("")
+
     }
 
     private fun initCipher(): Boolean{

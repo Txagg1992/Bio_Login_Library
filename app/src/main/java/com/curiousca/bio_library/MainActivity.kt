@@ -55,7 +55,7 @@ class MainActivity : AppCompatActivity(), BiometricCallback {
     }
 
     override fun onAuthenticationFailed() {
-        Toast.makeText(applicationContext, "Authentication failed.", Toast.LENGTH_LONG).show()
+       // Toast.makeText(applicationContext, "Authentication failed.", Toast.LENGTH_LONG).show()
     }
 
     override fun onAuthenticationCancelled() {

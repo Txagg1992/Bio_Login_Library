@@ -65,7 +65,9 @@ class BiometricDialogV23(@NonNull context: Context, biometricCallback: Biometric
 
     fun updateFingerImg(){
         this.image_fingerprint.setImageResource(R.drawable.ic_error_outline)
-        Thread.sleep(2000)
+    }
+
+    fun renewFingerImg(){
         this.image_fingerprint.setImageResource(R.drawable.ic_fingerprint)
     }
 

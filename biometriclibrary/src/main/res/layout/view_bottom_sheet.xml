@@ -67,7 +67,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/image_fingerprint"
         android:gravity="center"
-        android:text="Status"
+        android:text=""
         android:textColor="@color/dialog_status"
         android:layout_marginTop="16dp"/>
 
