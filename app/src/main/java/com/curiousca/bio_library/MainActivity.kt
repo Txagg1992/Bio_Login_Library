@@ -75,6 +75,6 @@ class MainActivity : AppCompatActivity(), BiometricCallback {
     }
 
     override fun onAuthenticationError(errorCode: Int, errString: String) {
-        //Toast.makeText(applicationContext, errString, Toast.LENGTH_LONG).show()
+        Toast.makeText(applicationContext, errString, Toast.LENGTH_LONG).show()
     }
 }
